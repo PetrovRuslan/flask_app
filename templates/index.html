@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Flask App</title>
+    </head>
+    <body>
+        <h1>{{ login }} test</h1>
+        <h1>{{ password }}</h1>
+        <h1>{{ UPLOAD_FOLDER }}</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <div>
+            <a href="upload">Страница загрузки</a>
+            <ul>
+                {% for file in list_of_files %}
+                    <li><a href="{{ url_for('download', filename=file) }}" download>{{ file }}</a></li>
+                {% endfor %}
+            </ul>  
+        </div>
+    </body>
+</html>
