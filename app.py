@@ -37,6 +37,12 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+if username == '' or password == '':
+    @app.route('/')
+    def none_var():
+        return ("не заданы переменные окружения")
+
+
 @app.route('/')
 @auth.login_required
 def hello():
