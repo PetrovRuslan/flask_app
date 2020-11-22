@@ -25,6 +25,12 @@ users = {
 }
 
 
+if username == '' or password == '':
+    @app.route('/')
+    def none_var():
+        return ("не заданы переменные окружения")
+
+
 @auth.verify_password
 def verify_password(username, password):
     if username in users and \
@@ -35,12 +41,6 @@ def verify_password(username, password):
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
-if username == '' or password == '':
-    @app.route('/')
-    def none_var():
-        return ("не заданы переменные окружения")
 
 
 @app.route('/')
