@@ -28,11 +28,10 @@ else:
     users = {
         username: generate_password_hash(password)
     }
-    return users
 
-users = {
-    username: generate_password_hash(password)
-}
+# users = {
+#     username: generate_password_hash(password)
+# }
 
 @auth.verify_password
 def verify_password(username, password):
