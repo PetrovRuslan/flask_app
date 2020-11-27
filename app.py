@@ -24,6 +24,11 @@ if username == '' or password == '':
     @app.route('/')
     def none_var():
         return ("не заданы переменные окружения")
+else:
+    users = {
+        username: generate_password_hash(password)
+    }
+    return users
 
 users = {
     username: generate_password_hash(password)
