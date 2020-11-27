@@ -20,16 +20,14 @@ username = os.environ.get('LOGIN')
 
 password = os.environ.get('PASSWORD')
 
-users = {
-    username: generate_password_hash(password)
-}
-
-
 if username == '' or password == '':
     @app.route('/')
     def none_var():
         return ("не заданы переменные окружения")
 
+users = {
+    username: generate_password_hash(password)
+}
 
 @auth.verify_password
 def verify_password(username, password):
