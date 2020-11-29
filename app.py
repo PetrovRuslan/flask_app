@@ -54,7 +54,8 @@ else:
         def none_upfolder_upload():
             return ("не задана upload dir")
     else:
-        os.mkdir(UPLOAD_FOLDER)
+        if not os.path.exists(UPLOAD_FOLDER):
+            os.mkdir(UPLOAD_FOLDER)
         @app.route('/')
         @auth.login_required
         def hello():
@@ -93,7 +94,7 @@ else:
             return render_template("form.html")
 
 
-        @app.route('/<UPLOAD_FOLDER>/<path:filename>', methods=['GET', 'POST'])
+        @app.route('/upload/<path:filename>', methods=['GET', 'POST'])
         @auth.login_required
         def download(filename):
             return send_from_directory(directory=UPLOAD_FOLDER, filename=filename)
