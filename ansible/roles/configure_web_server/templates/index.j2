@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<title>Test generation page!!</title>
+	</head>
+	<body>
+		<h1>Hello World!!!</h1>
+		<p>Server name: {{ ansible_hostname  }}</p>
+		<p>Server OS family: {{ ansible_os_family }}</p>
+		<p>IP address: {{ ansible_default_ipv4.address }}</p>
+	</body>
+</html>

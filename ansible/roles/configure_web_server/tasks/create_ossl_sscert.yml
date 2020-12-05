@@ -1,0 +1,32 @@
+---
+- name: add epel-release
+  yum: name=epel-release state=installed
+  
+- name: install pip
+  yum: name=python3-pip state=installed
+
+- name: install PyOpenSSL 
+  pip:
+    name: PyOpenSSL
+    
+- name: create folder for ssl cert
+  file:
+    path: /etc/ssl/flask_app
+    state: directory
+    
+- name: step 1
+  openssl_privatekey:
+    path: /etc/ssl/flask_app/flask_app.key
+    size: 2048 
+
+- name: step 2
+  openssl_csr:
+    path: /etc/ssl/flask_app/flask_app.csr
+    privatekey_path: /etc/ssl/flask_app/flask_app.key
+
+- name: step 3
+  openssl_certificate:
+    path: /etc/ssl/flask_app/flask_app.crt
+    privatekey_path: /etc/ssl/flask_app/flask_app.key
+    csr_path: /etc/ssl/flask_app/flask_app.csr
+    provider: selfsigned

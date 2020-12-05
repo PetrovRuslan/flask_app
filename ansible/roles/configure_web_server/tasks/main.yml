@@ -1,0 +1,7 @@
+---
+# tasks file for configure_web_server
+- name: Create openssl self sign cert
+  include: create_ossl_sscert.yml
+
+- name: Install nginx
+  include: install_nginx.yml

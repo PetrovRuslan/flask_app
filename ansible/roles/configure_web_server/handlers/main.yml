@@ -1,0 +1,7 @@
+---
+# handlers file for configure_web_server
+- name: Restart firewalld
+  service: name=firewalld state=restarted
+
+- name: Restart nginx
+  service: name=nginx state=restarted
