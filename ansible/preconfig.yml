@@ -1,6 +1,6 @@
 ---
 - name: Preinstall - update hosts and install required package
-  hosts: all
+  hosts: server6
   become: yes
 
   tasks:
