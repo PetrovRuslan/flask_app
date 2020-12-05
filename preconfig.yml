@@ -1,0 +1,8 @@
+---
+- name: Preinstall - update hosts and install required package
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: upgrade
+    yum: name=* state=latest
