@@ -1,7 +1,0 @@
----
-- name: install docker engine
-  hosts: server6
-  become: yes
-
-  roles:
-    - configure_docker
