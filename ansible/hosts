@@ -42,20 +42,20 @@
 
 ## db-[99:101]-node.example.com
 [all]
-server1	ansible_host=10.90.137.237
-server2	ansible_host=10.90.137.238
-server3 ansible_host=10.90.137.239
-server4 ansible_host=10.90.138.66
-server5 ansible_host=10.90.137.242
-server6 ansible_host=10.90.138.123
-server7 ansible_host=10.90.138.139
+app1	 ansible_host=10.90.138.140
+app2	 ansible_host=10.90.138.141
+zabbix   ansible_host=10.90.138.143
+balancer ansible_host=10.90.137.239
+#server5 ansible_host=10.90.137.242
+#server6 ansible_host=10.90.138.123
+#server7 ansible_host=10.90.138.139
 
-[web_servers]
-server1
-server5
+[app_servers]
+app1
+app2
 
 [nginx_balancer]
-server2
+balancer
 
-[app_server]
-server6
+#[app_server]
+#server6
