@@ -1,11 +1,7 @@
 ---
 - name: Preinstall - update hosts and install required package
-  hosts: server6
+  hosts: server7
   become: yes
-
-  tasks:
-  - name: upgrade
-    yum: name=* state=latest
 
   roles:
     - configure_web_server
