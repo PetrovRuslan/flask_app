@@ -54,6 +54,9 @@ balancer ansible_host=10.90.137.239
 app1
 app2
 
+[zabbix]
+zabbix
+
 [nginx_balancer]
 balancer
 
