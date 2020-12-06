@@ -6,3 +6,7 @@
   tasks:
   - name: upgrade
     yum: name=* state=latest
+
+  roles:
+    - configure_web_server
+    - configure_docker
