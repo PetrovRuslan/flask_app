@@ -44,7 +44,8 @@
 [all]
 app1	 ansible_host=10.90.138.140
 app2	 ansible_host=10.90.138.141
-zabbix   ansible_host=10.90.138.143
+zabbix   ansible_host=10.90.138.148
+elk	 ansible_host=10.90.138.145
 balancer ansible_host=10.90.137.239
 #server5 ansible_host=10.90.137.242
 #server6 ansible_host=10.90.138.123
