@@ -1,20 +1,9 @@
 ---
-# tasks file for config_docker
-- name: upgrade
-  yum: name=* state=latest
-  
-- name: install yum utils
-  yum: name=yum-utils state=installed
+- name: configure docker & docker compose - step1
+  include: update_server.yml
 
-- name: Add docker repository
-  shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+- name: configure docker & docker compose - step2
+  include: install_docker.yml
 
-- name: Install docker
-  yum: name={{ item }} state=installed
-  loop:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
-
-- name: Start docker.service and enabled boot start
-  service: name=docker state=started enabled=yes
+- name: configure docker & docker compose - step3
+  include: install_docker-compose.yml
