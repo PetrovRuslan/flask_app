@@ -1,0 +1,33 @@
+---
+# tasks file for configure_balancer
+# - name: copy Dockerfile
+#   copy:
+#     src: ./Dockerfile
+#     dest: /root/demo-dockerfile/Dockerfile
+#     owner: root
+#     group: root
+#     mode: '0644'
+- name: install docker-py
+  pip: name=docker-py
+
+- name: Copy nginx config
+  copy: src=Dockerfile dest=~/Dockerfile
+
+- name: Copy nginx config
+  copy: src=nginx.conf dest=~/nginx.conf
+
+- name: build container image
+  docker_image:
+    name: nginx:balancer
+    build:
+      path: ~/Dockerfile
+      # source: build
+      pull: yes
+    state: present
+    source: build
+
+- name: Running the container
+  docker_container:
+    image: nginx:balancer
+    path: docker
+    state: running
