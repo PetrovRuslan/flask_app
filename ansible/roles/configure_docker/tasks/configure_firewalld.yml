@@ -1,0 +1,15 @@
+- name: add firewalld rule
+  firewalld: 
+    zone: public
+    service: http
+    permanent: true
+    state: enabled
+  notify: Restart firewalld
+
+- name: add firewalld rule
+  firewalld:
+    zone: public
+    service: https
+    permanent: true
+    state: enabled
+  notify: Restart firewalld

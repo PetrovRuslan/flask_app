@@ -7,3 +7,6 @@
 
 - name: configure docker & docker compose - step3
   include: install_docker-compose.yml
+
+- name: configure docker & docker compose - step4
+  include: configure_firewalld.yml
