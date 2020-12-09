@@ -1,0 +1,7 @@
+---
+- name: Configured elk
+  hosts: elk
+  become: 
+
+  roles: 
+    - configure_elk
