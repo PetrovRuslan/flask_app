@@ -10,3 +10,6 @@
 
 - name: configure docker & docker compose - step4
   include: configure_firewalld.yml
+
+- name: configure docker & docker compose - step4
+  include: install_python3.yml
