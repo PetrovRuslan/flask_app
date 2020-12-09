@@ -1,0 +1,22 @@
+---
+- name: install docker-py
+  pip: name=docker-py
+
+- name: create build directory
+  file:
+    path: /root/demo-dockerfile
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: copy Dockerfile
+  copy:
+    src: docker-compose.yml
+    dest: /root/demo-dockerfile/docker-compose.yml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: run docker compose
+  shell: "cd /root/demo-dockerfile && docker-compose up -d"
