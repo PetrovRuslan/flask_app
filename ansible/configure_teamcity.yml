@@ -1,6 +1,6 @@
 ---
 - name: Configured teamcity server
-  hosts: teamcity
+  hosts: workers
   become: yes
 
   roles: 
