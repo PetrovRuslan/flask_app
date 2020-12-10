@@ -1,0 +1,34 @@
+version: '2.1'
+services:
+   db:
+    image: ${SQL_IMAGE}
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: ${ACCEPT_EULA}
+    ports:
+      - 1401:1433
+    healthcheck:
+      test: [ "CMD", "/opt/mssql-tools/bin/sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "select 1"]
+      interval: 10s
+      retries: 10
+   octopus-server:
+    image: octopusdeploy/octopusdeploy${OCTOPUS_SERVER_REPO_SUFFIX}:${OCTOPUS_SERVER_TAG}
+    environment:
+      ACCEPT_EULA: ${ACCEPT_OCTOPUS_EULA}
+      OCTOPUS_SERVER_NODE_NAME: ${OCTOPUS_SERVER_NODE_NAME}
+      DB_CONNECTION_STRING: ${DB_CONNECTION_STRING}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      OCTOPUS_SERVER_BASE64_LICENSE: ${OCTOPUS_SERVER_BASE64_LICENSE}
+      MASTER_KEY: ${MASTER_KEY}
+      ADMIN_API_KEY: ${ADMIN_API_KEY}
+    ports:
+      - 80:8080
+    depends_on:
+      db:
+        condition: service_healthy
+networks:
+  default:
+    external:
+      name: nat
