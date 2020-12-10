@@ -1,7 +1,4 @@
 ---
-- name: install docker-py
-  pip: name=docker-py
-
 - name: create build directory
   file:
     path: /root/demo-dockerfile
@@ -18,5 +15,7 @@
     group: root
     mode: '0644'
 
-- name: run docker compose
-  shell: "cd /root/demo-dockerfile && docker-compose up -d"
+- name: run the service defined in my_project's docker-compose.yml
+  docker_compose:
+    project_src: /root/demo-dockerfile/
+    state: present
