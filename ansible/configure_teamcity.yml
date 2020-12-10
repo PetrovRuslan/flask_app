@@ -1,0 +1,7 @@
+---
+- name: Configured teamcity server
+  hosts: teamcity
+  become: yes
+
+  roles: 
+    - configure_teamcity
