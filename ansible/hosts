@@ -47,8 +47,8 @@ app2	 ansible_host=10.90.138.141
 zabbix   ansible_host=10.90.138.164
 elk	     ansible_host=10.90.138.145
 balancer ansible_host=10.90.137.239
-#server5 ansible_host=10.90.137.242
-server6  ansible_host=10.90.138.138
+octopus  ansible_host=10.90.138.193
+workers  ansible_host=10.90.138.199
 teamcity ansible_host=10.90.138.139
 
 [app_servers]
