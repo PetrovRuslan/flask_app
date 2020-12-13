@@ -11,7 +11,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://localhost:12201
+        gelf-address: udp://10.90.138.145:12201
         tag: app1
   web: 
     build: ansible/roles/configure_web_server/files
@@ -20,5 +20,5 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://localhost:12201
+        gelf-address: udp://10.90.138.145:12201
         tag: nginx-app1
