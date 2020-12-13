@@ -1,7 +1,0 @@
----
-- name: test build
-  hosts: localhost
-  become: yes
-
-  roles:
-    - configure_balancer
