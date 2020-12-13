@@ -14,7 +14,7 @@ services:
         gelf-address: udp://10.90.138.145:12201
         tag: app1
   web: 
-    build: ansible/roles/configure_web_server/files
+    build: nginx
     ports:
       - "80:80"
     logging:
