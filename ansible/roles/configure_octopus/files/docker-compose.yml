@@ -11,6 +11,11 @@ services:
       test: [ "CMD", "/opt/mssql-tools/bin/sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "select 1"]
       interval: 10s
       retries: 10
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://10.90.138.145:12201
+        tag: octopus_db  
    octopus-server:
     image: octopusdeploy/octopusdeploy${OCTOPUS_SERVER_REPO_SUFFIX}:${OCTOPUS_SERVER_TAG}
     environment:
@@ -28,6 +33,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://10.90.138.145:12201
+        tag: octopus_server  
+    
 # networks:
 #   default:
 #     external:

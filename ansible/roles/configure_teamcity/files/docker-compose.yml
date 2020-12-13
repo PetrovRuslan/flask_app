@@ -8,6 +8,11 @@ services:
     volumes:
       - /data/teamcity_server/datadir:/data/teamcity_server/datadir
       - /opt/teamcity/logs:/opt/teamcity/logs
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://10.90.138.145:12201
+        tag: teamcity_server  
   tca:
     image: jetbrains/teamcity-agent:2020.2-linux-sudo
     depends_on:
