@@ -1,25 +1,11 @@
 ---
-# tasks file for congigure_teamcity
-# - name: install docker-py
-#   pip: name=docker-py
-
-# - name: Running the container
-#   docker_container:
-#     name: teamcity-server-instance
-#     volumes: 
-#       - "/data/teamcity_server/datadir:/data/teamcity_server/datadir"
-#       - "/opt/teamcity/logs:/opt/teamcity/logs"
-#     image: jetbrains/teamcity-server
-#     ports: "8111:8111"
-#     state: started
-
 - name: create build directory
   file:
     path: /data/teamcity_agent/conf
     state: directory
     owner: root
     group: root
-    mode: '0775'
+    mode: '0777'
 
 - name: copy docker-compose.yml
   copy:
