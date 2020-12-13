@@ -1,7 +1,0 @@
----
-- name: Configured teamcity server
-  hosts: workers
-  become: yes
-
-  roles: 
-    - configure_teamcity

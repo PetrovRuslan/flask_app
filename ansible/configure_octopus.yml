@@ -1,7 +1,0 @@
----
-- name: Configured octopus
-  hosts: octopus
-  become: yes
-
-  roles: 
-    - configure_octopus

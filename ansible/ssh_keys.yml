@@ -1,6 +1,0 @@
----
-- name: copy ssh key on configured servers
-  hosts: all
-  remote_user: root
-  roles:
-    - { role: sshkeys }

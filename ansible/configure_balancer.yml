@@ -1,7 +1,0 @@
----
-- name: Configured balancer
-  hosts: balancer
-  become: yes
-
-  roles: 
-    - configure_balancer

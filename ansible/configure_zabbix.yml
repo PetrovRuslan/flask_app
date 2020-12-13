@@ -1,7 +1,0 @@
----
-- name: Preinstall - update hosts and install required package
-  hosts: zabbix
-  become: yes
-
-  roles:
-    - configure_zabbix

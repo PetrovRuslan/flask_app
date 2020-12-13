@@ -1,3 +1,0 @@
----
-- name: update server
-  yum: name=* state=latest
