@@ -14,5 +14,5 @@
 - name: configure docker & docker compose - step5
   include: install_python3.yml
 
-- name: configure docker & docker compose - step6
-  include: install_docker-py.yml
+# - name: configure docker & docker compose - step6
+#   include: install_docker-py.yml
